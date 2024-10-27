@@ -1,5 +1,6 @@
 package com.klaus.book.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.klaus.book.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -41,6 +42,7 @@ public class User implements UserDetails, Principal {
     private boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Role> roles;
 
 
